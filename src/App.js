@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ClickCounter } from "./ClickCounter.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <ClickCounter initialValue={0} incrementValue={1} />
+      </div>
+    );
+  }
 }
-
-export default App;
