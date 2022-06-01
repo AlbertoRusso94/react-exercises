@@ -9,6 +9,9 @@ export class Counter extends React.Component {
   componentDidMount() {
     setInterval(() => {
       this.setState((state) => {
+        // non bisogna mai modificare lo state originale perchè non verrebbe vista da react
+        // state.count += this.props.initialValue
+
         return {
           count: state.count + this.props.incrementValue,
         };
