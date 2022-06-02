@@ -7,6 +7,14 @@ export class Login extends React.Component {
     remember: true,
   };
 
+  resetInput = () => {
+    this.setState({
+      username: "",
+      password: "",
+      remember: false,
+    });
+  };
+
   handleInput = (event) => {
     const value = event.target.value;
     const name = event.target.name;
@@ -48,6 +56,7 @@ export class Login extends React.Component {
         >
           Login
         </button>
+        <button onClick={this.resetInput}>Reset</button>
       </div>
     );
   }
