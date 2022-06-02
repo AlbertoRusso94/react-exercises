@@ -17,6 +17,10 @@ export class Login extends React.Component {
     });
   };
 
+  loginButton = () => {
+    this.props.onLogin(this.state);
+  };
+
   render() {
     return (
       <div>
@@ -37,6 +41,13 @@ export class Login extends React.Component {
           checked={this.state.remember}
           onChange={this.handleInput}
         ></input>
+        <button
+          type="button"
+          onClick={this.loginButton}
+          disabled={!this.state.username || !this.state.password}
+        >
+          Login
+        </button>
       </div>
     );
   }

@@ -3,11 +3,14 @@ import React from "react";
 import { Login } from "./Login";
 
 export class App extends React.Component {
+  eventoLogin = (state) => {
+    console.log(state);
+  };
   render() {
     return (
       <div>
         {/* <InteractiveWelcome /> */}
-        <Login />
+        <Login onLogin={this.eventoLogin} />
       </div>
     );
   }
