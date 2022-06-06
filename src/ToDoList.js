@@ -22,6 +22,11 @@ export class ToDoList extends React.Component {
       username: "",
     });
   };
+  resetList = () => {
+    this.setState({
+      items: [],
+    });
+  };
 
   render() {
     return (
@@ -37,6 +42,7 @@ export class ToDoList extends React.Component {
           onChange={this.inputAdd}
         ></input>
         <button onClick={this.addOnlist}>Add</button>
+        <button onClick={this.resetList}>Reset</button>
       </div>
     );
   }
