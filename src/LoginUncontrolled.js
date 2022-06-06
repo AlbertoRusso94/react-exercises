@@ -18,15 +18,10 @@ export class LoginUncontrolled extends React.Component {
     return (
       <div>
         <form onSubmit={this.formSubmit}>
-          <input name="username" required></input>
+          <input name="username" required autoFocus></input>
           <input name="password" type="password" required></input>
           <input name="remember" type="checkbox"></input>
-          <button
-            type="submit"
-            //  disabled={!this.state.username || !this.state.password}
-          >
-            Login
-          </button>
+          <button type="submit">Login</button>
           <button type="reset">Reset</button>
         </form>
       </div>
