@@ -28,12 +28,23 @@ export class ToDoList extends React.Component {
     });
   };
 
+  removeItem = (index) => {
+    const { items } = this.state;
+    items.splice(index, 1);
+    this.setState({
+      items: items,
+    });
+  };
+
   render() {
     return (
       <div>
         <ul>
           {this.state.items.map((names, index) => (
-            <li key={names + index}> {names} </li>
+            <li key={names + index}>
+              {names}{" "}
+              <button onClick={() => this.removeItem(index)}>Remove</button>
+            </li>
           ))}
         </ul>
         <input
