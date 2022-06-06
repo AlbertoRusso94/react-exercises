@@ -19,6 +19,7 @@ export class ToDoList extends React.Component {
 
     this.setState({
       items: items,
+      username: "",
     });
   };
 
