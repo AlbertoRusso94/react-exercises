@@ -1,16 +1,18 @@
 import React from "react";
 // import { InteractiveWelcome } from "./InteractiveWelcome";
-import { Login } from "./Login";
+// import { Login } from "./Login";
+import { LoginUncontrolled } from "./LoginUncontrolled";
 
 export class App extends React.Component {
-  eventoLogin = (state) => {
-    console.log(state);
-  };
+  // eventoLogin = (state) => {
+  //   console.log(state);
+  // };
   render() {
     return (
       <div>
         {/* <InteractiveWelcome /> */}
-        <Login onLogin={this.eventoLogin} />
+        {/* <Login onLogin={this.eventoLogin} /> */}
+        <LoginUncontrolled />
       </div>
     );
   }
