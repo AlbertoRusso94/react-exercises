@@ -7,7 +7,7 @@ export class App extends React.Component {
       <div>
         {/* <Welcome name="John" age={19} /> */}
 
-        <Sum numbers={[1, 2, 3, 4].reduce((somma, i) => somma + i, 0)} />
+        <Sum />
       </div>
     );
   }
