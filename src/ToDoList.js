@@ -39,14 +39,15 @@ export class ToDoList extends React.Component {
   render() {
     return (
       <div>
-        <ul>
+        {this.props.render(this.state.items, this.removeItem)}
+        {/* <ul>
           {this.state.items.map((names, index) => (
             <li key={names + index}>
-              {names}{" "}
+              {names}
               <button onClick={() => this.removeItem(index)}>Remove</button>
             </li>
           ))}
-        </ul>
+        </ul> */}
         <input
           name="username"
           value={this.state.username}
