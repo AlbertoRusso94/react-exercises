@@ -1,15 +1,13 @@
 import React from "react";
 import { Age } from "./Age";
 
-export class Welcome extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>Welcome, {this.props.name}! </p>
-        <Age age={this.props.age} />
-      </div>
-    );
-  }
+export function Welcome(props) {
+  return (
+    <div>
+      <p>Welcome, {props.name}! </p>
+      <Age age={props.age} />
+    </div>
+  );
 }
 
 //se non viene passato nessuna prop da welcome, non verrà reindirizzato nulla
