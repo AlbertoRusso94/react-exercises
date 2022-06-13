@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function ClickCounter({ initialValue = 0 }) {
   const [count, setCount] = useState(initialValue);
+
+  function onCounterChange() {
+    console.log(`counter value ${count}`);
+  }
+  useEffect(() => {
+    onCounterChange();
+  }, [count]);
 
   function contatoreConBottone() {
     setCount(count + 1);
