@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Login() {
+export function Login({ onLogin }) {
   const [inputData, setInputData] = useState({
     username: "",
     password: "",
@@ -19,7 +19,7 @@ export function Login() {
   }
 
   const loginButton = () => {
-    console.log(inputData);
+    onLogin(inputData);
   };
 
   //   loginButton = () => {
