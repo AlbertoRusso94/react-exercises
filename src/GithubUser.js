@@ -18,6 +18,7 @@ export function GithubUser({ username }) {
       {data && data.type}
       <hr></hr>
       {data && data.bio}
+      <hr></hr>
     </div>
   );
 }
