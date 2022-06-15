@@ -1,63 +1,38 @@
 import React from "react";
+import { useControlledForm } from "./useControlledForm";
 
-export class Login extends React.Component {
-  state = {
-    username: "",
-    password: "",
-    remember: true,
-  };
+export function Login({ onLogin }) {
+  const { data, onReset, onHandleInput, onLog } = useControlledForm({
+    onLogin,
+  });
 
-  resetInput = () => {
-    this.setState({
-      username: "",
-      password: "",
-      remember: false,
-    });
-  };
-
-  handleInput = (event) => {
-    const value = event.target.value;
-    const name = event.target.name;
-    const type = event.target.type;
-    const checked = event.target.checked;
-    this.setState({
-      [name]: type === "checkbox" ? checked : value,
-    });
-  };
-
-  loginButton = () => {
-    this.props.onLogin(this.state);
-  };
-
-  render() {
-    return (
-      <div>
-        <input
-          name="username"
-          value={this.state.username}
-          onChange={this.handleInput}
-        ></input>
-        <input
-          name="password"
-          type="password"
-          value={this.state.password}
-          onChange={this.handleInput}
-        ></input>
-        <input
-          name="remember"
-          type="checkbox"
-          checked={this.state.remember}
-          onChange={this.handleInput}
-        ></input>
-        <button
-          type="button"
-          onClick={this.loginButton}
-          disabled={!this.state.username || !this.state.password}
-        >
-          Login
-        </button>
-        <button onClick={this.resetInput}>Reset</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <input
+        name="username"
+        value={data.username}
+        onChange={onHandleInput}
+      ></input>
+      <input
+        name="password"
+        type="password"
+        value={data.password}
+        onChange={onHandleInput}
+      ></input>
+      <input
+        name="remember"
+        type="checkbox"
+        checked={data.remember}
+        onChange={onHandleInput}
+      ></input>
+      <button
+        type="button"
+        onClick={onLog}
+        disabled={!data.username || !data.password}
+      >
+        Login
+      </button>
+      <button onClick={onReset}>Reset</button>
+    </div>
+  );
 }
