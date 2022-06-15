@@ -7,9 +7,9 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <ClickCounter initialValue={0} incrementValue={1} /> */}
+        <ClickCounter initialValue={0} incrementValue={1} />
         {/* <GithubUser username="AlbertoRusso94" /> */}
-        <GithubUserList />
+        {/* <GithubUserList /> */}
       </div>
     );
   }

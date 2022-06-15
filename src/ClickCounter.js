@@ -1,23 +1,36 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export function ClickCounter({ initialValue = 0 }) {
+function useCounter(initialValue = 0) {
   const [count, setCount] = useState(initialValue);
-
-  function onCounterChange() {
-    console.log(`counter value ${count}`);
-  }
-  useEffect(() => {
-    onCounterChange();
-  }, [count]);
-
-  function contatoreConBottone() {
+  function contatoreConBottoneUp() {
     setCount(count + 1);
   }
 
+  function contatoreConBottoneDown() {
+    setCount(count - 1);
+  }
+
+  function resetContatore() {
+    setCount(initialValue);
+  }
+  return {
+    counter: count,
+    onIncrement: contatoreConBottoneUp,
+    onDecrement: contatoreConBottoneDown,
+    onReset: resetContatore,
+  };
+}
+
+export function ClickCounter({ initialValue = 0 }) {
+  const { counter, onIncrement, onDecrement, onReset } =
+    useCounter(initialValue);
+
   return (
     <div>
-      <h1>Counter: {count} </h1>
-      <button onClick={contatoreConBottone}>Click here</button>
+      <h1>Counter: {counter} </h1>
+      <button onClick={onIncrement}>Add 1</button>
+      <button onClick={onDecrement}>Remove 1</button>
+      <button onClick={onReset}>Reset</button>
     </div>
   );
 }
