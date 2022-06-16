@@ -8,8 +8,8 @@ export class App extends React.Component {
     return (
       <div>
         {/* <ClickCounter initialValue={0} incrementValue={1} /> */}
-        {/* <GithubUser username="AlbertoRusso94" /> */}
-        <GithubUserList />
+        <GithubUser username="AlbertoRusso94" />
+        {/* <GithubUserList /> */}
       </div>
     );
   }
