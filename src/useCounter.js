@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export function useCounter(initialValue = 0) {
   const [count, setCount] = useState(initialValue);
-  function contatoreConBottoneUp() {
-    setCount(count + 1);
-  }
+  const contatoreConBottoneUp = useCallback(function contatoreConBottoneUp() {
+    setCount((count) => count + 1);
+  }, []);
 
-  function contatoreConBottoneDown() {
-    setCount(count - 1);
-  }
+  const contatoreConBottoneDown = useCallback(
+    function contatoreConBottoneDown() {
+      setCount((count) => count - 1);
+    },
+    []
+  );
 
-  function resetContatore() {
-    setCount(initialValue);
-  }
+  const resetContatore = useCallback(
+    function resetContatore() {
+      setCount(initialValue);
+    },
+    [initialValue]
+  );
   return {
     counter: count,
     onIncrement: contatoreConBottoneUp,
