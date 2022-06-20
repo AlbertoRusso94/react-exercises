@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { FilteredList } from "./FilteredList";
 
-function App() {
+export function App() {
+  const lista = [
+    { name: "Alberto", id: 1, age: 28 },
+    { name: "Giovanni", id: 2, age: 26 },
+    { name: "Gatto", id: 3, age: 4 },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <FilteredList list={lista} />
     </div>
   );
 }
-
-export default App;
