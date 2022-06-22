@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { ClickCounter } from "./ClickCounter.js";
 import { GithubUser } from "./GithubUser.js";
 import { ShowGithubUser } from "./ShowGithubUser.js";
@@ -7,9 +7,18 @@ import { ShowGithubUser } from "./ShowGithubUser.js";
 export class App extends React.Component {
   render() {
     return (
-      <Routes>
-        <Route path="/:username" element={<ShowGithubUser />} />
-      </Routes>
+      <>
+        <Link to="/">Home</Link>
+        <Link to="clickcounter">ClickCounter</Link>
+        <Link to="githubuser">GithubUser</Link>
+
+        <Routes>
+          <Route path="/" element={<div>Home</div>} />
+          <Route path="/clickcounter" element={<ClickCounter />} />
+          <Route path="/gitubuser" element={<GithubUser />} />
+          <Route path="/:username" element={<ShowGithubUser />} />
+        </Routes>
+      </>
     );
   }
 }
