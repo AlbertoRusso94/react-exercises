@@ -13,6 +13,7 @@ export class App extends React.Component {
         {/* <GithubUser username="AlbertoRusso94" /> */}
         <Routes>
           <Route path="/users" element={<GithubUserList />}>
+            <Route index element={<p>Add a user and select it</p>} />
             <Route path=":username" element={<ShowGithubUser />} />
           </Route>
         </Routes>
