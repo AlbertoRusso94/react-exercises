@@ -8,12 +8,9 @@ export function GithubUser({ username }) {
     <div>
       {loading && <h1>Loading...</h1>}
       {error && <h1>Error</h1>}
-      {data && <p> {data.name} </p>}
-      <hr></hr>
-      {data && data.type}
-      <hr></hr>
-      {data && data.bio}
-      <hr></hr>
+      {data && <p> {data.name} </p> && <hr></hr>}
+      {data && data.type && <hr></hr>}
+      {data && data.bio && <hr></hr>}
     </div>
   );
 }
