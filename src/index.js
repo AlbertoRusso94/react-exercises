@@ -6,9 +6,13 @@ import { counterState } from "./state/CounterState";
 import { todoState } from "./state/TodoState";
 
 // ReactDOM.render(<App />, document.getElementById("root"));
+
+//--->feature/Redux-05
+
 store.subscribe(() => {
   console.log(store.getState());
 });
+//--->fine feature/Redux-05
 
 store.dispatch(
   todoState.actions.addTodo({ id: 1, title: "Buy phone", completed: true })
