@@ -1,42 +1,64 @@
-const defaultState = [];
+import { createSlice } from "@reduxjs/toolkit";
 
-const ADD = "ADD@TODO";
-const REMOVE = "REMOVE@TODO";
-const RESET = "RESET@TODO";
+export const todoState = createSlice({
+  name: "todo",
+  initialState: [],
+  reducers: {
+    addTodo: (state, action) => {
+      state.push(action.payload);
+    },
+    removeTodo: (state, action) =>
+      state.filter((element) => element.id !== action.payload),
+    editTodo: (state, action) => {
+      const { id, data } = action.payload;
+      const todo = state.find((td) => td.id === id);
+      for (let key in data) {
+        todo[key] = data[key];
+      }
+    },
+    resetTodos: (state, action) => [],
+  },
+});
 
-export const addTodo = (todo) => {
-  return {
-    type: ADD,
-    payload: todo,
-  };
-};
+// const defaultState = [];
 
-export const removeTodo = (id) => {
-  return {
-    type: REMOVE,
-    payload: id,
-  };
-};
+// const ADD = "ADD@TODO";
+// const REMOVE = "REMOVE@TODO";
+// const RESET = "RESET@TODO";
 
-export const resetTodos = () => {
-  return {
-    type: RESET,
-  };
-};
+// export const addTodo = (todo) => {
+//   return {
+//     type: ADD,
+//     payload: todo,
+//   };
+// };
 
-export const TodoReducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case ADD: {
-      return [...state, action.payload];
-    }
-    case REMOVE: {
-      return state.filter((element) => element.id !== action.payload);
-    }
-    case RESET: {
-      return defaultState;
-    }
-    default: {
-      return state;
-    }
-  }
-};
+// export const removeTodo = (id) => {
+//   return {
+//     type: REMOVE,
+//     payload: id,
+//   };
+// };
+
+// export const resetTodos = () => {
+//   return {
+//     type: RESET,
+//   };
+// };
+
+// export const TodoReducer = (state = defaultState, action) => {
+//   switch (action.type) {
+//     case ADD: {
+//       return [...state, action.payload];
+//     }
+//     case REMOVE: {
+//       return state.filter((element) => element.id !== action.payload);
+//     }
+//     case RESET: {
+//       return defaultState;
+//     }
+//     default: {
+//       return state;
+//     }
+//   }
+// };
